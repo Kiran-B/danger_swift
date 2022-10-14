@@ -1,4 +1,4 @@
-FROM swift:5.5.3-focal
+FROM swift:5.6.3-focal
 
 MAINTAINER Orta Therox
 
@@ -16,7 +16,7 @@ RUN apt-get update -q \
     && rm -r /var/lib/apt/lists/*
 
 
-# RUN git clone -b 0.46.1 --single-branch --depth 1 https://github.com/realm/SwiftLint.git _swiftlint && cd _swiftlint && git submodule update --init --recursive && make install && rm -rf _swiftlint # swiftlint
+# RUN git clone -b 0.49.1 --single-branch --depth 1 https://github.com/realm/SwiftLint.git _swiftlint && cd _swiftlint && git submodule update --init --recursive && make install && rm -rf _swiftlint # swiftlint
 
 # Install danger-swift globally
 COPY . _danger-swift
