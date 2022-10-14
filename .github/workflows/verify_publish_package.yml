@@ -1,0 +1,21 @@
+name: Verify build-ability of Danger-Swift package
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Export tag version
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+    
+    - name: Update Dockerfile to create image with Swiftlint
+      run: Scripts/release_swiftlint_docker.sh
+          
+    - name: Docker Build
+      run: docker build .
