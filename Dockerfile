@@ -1,8 +1,8 @@
-FROM swift:5.7-focal
+FROM swift:5.7-jammy
 
 ARG SWIFTLINT_VERSION=0.50.0-rc.3
 
-MAINTAINER Orta Therox
+LABEL org.opencontainers.image.authors="Orta Therox"
 
 LABEL "com.github.actions.name"="Danger Swift"
 LABEL "com.github.actions.description"="Runs Swift Dangerfiles"
